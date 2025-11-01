@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>包原杰 - 网络与新媒体个人作品集</title>
+<!-- 引入Tailwind CSS（快速实现响应式样式） -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- 引入字体图标（用于下载、播放等按钮） -->
+<link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<!-- 自定义样式配置 -->
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: '#FF6B6B', // 主色调（活泼珊瑚红）
+        secondary: '#4ECDC4', // 辅助色（清新青绿）
+        accent: '#FFD166', // 强调色（活力黄色）
+        neutral: '#FFF9F0', // 背景色（温暖米白）
+        dark: '#2E294E', // 深色文字
+      },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'], // 无衬线字体（清晰易读）
+      },
+    }
+  }
+}
+</script>
+<style type="text/tailwindcss">
+@layer utilities {
+  .content-auto {
+    content-visibility: auto;
+  }
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  .card-hover {
+    transition: all 0.3s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+  .gradient-bg {
+    background: linear-gradient(135deg, #FFD166 0%, #FF6B6B 50%, #4ECDC4 100%);
+  }
+}
+</style>
+</head>
+<body class="bg-neutral font-sans text-dark">
+<!-- 导航栏（滚动时固定顶部） -->
+<header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-sm shadow-sm">
+<div class="container mx-auto px-4 py-3 flex justify-between items-center">
+<a href="#hero" class="text-2xl font-bold text-primary">包原杰的作品集</a>
+<!-- 桌面端导航 -->
+<nav class="hidden md:flex space-x-8">
+<a href="#about" class="font-medium hover:text-secondary transition-colors">个人信息</a>
+<a href="#key-works" class="font-medium hover:text-secondary transition-colors">重点作品</a>
+<a href="#other-videos" class="font-medium hover:text-secondary transition-colors">其他视频</a>
+<a href="#other-works" class="font-medium hover:text-secondary transition-colors">其他作品</a>
+<a href="#contact" class="font-medium hover:text-secondary transition-colors">联系我</a>
+</nav>
+<!-- 移动端导航按钮 -->
+<button id="menuBtn" class="md:hidden text-dark focus:outline-none">
+<i class="fa fa-bars text-xl"></i>
+</button>
+</div>
+<!-- 移动端导航菜单（默认隐藏） -->
+<div id="mobileMenu" class="hidden md:hidden bg-white shadow-md">
+<div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+<a href="#about" class="py-2 font-medium hover:text-secondary transition-colors">个人信息</a>
+<a href="#key-works" class="py-2 font-medium hover:text-secondary transition-colors">重点作品</a>
+<a href="#other-videos" class="py-2 font-medium hover:text-secondary transition-colors">其他视频</a>
+<a href="#other-works" class="py-2 font-medium hover:text-secondary transition-colors">其他作品</a>
+<a href="#contact" class="py-2 font-medium hover:text-secondary transition-colors">联系我</a>
+</div>
+</div>
+</header>
+
+<!-- 英雄区（首页封面） -->
+<section id="hero" class="pt-32 pb-20 gradient-bg">
+<div class="container mx-auto px-4 text-center">
+<h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold text-white mb-4 text-shadow">
+包原杰 <span class="text-accent">· 深圳大学</span>
+</h1>
+<p class="text-[clamp(1rem,2vw,1.25rem)] text-white/90 max-w-2xl mx-auto mb-8">
+网络与新媒体专业（本科）
+</p>
+<a href="#key-works" class="inline-block bg-white text-primary px-8 py-3 rounded-lg font-medium hover:bg-accent hover:text-white transition-all shadow-lg">
+查看我的作品 <i class="fa fa-arrow-down ml-2"></i>
+</a>
+</div>
+</section>
+
+<!-- 个人信息区 -->
+<section id="about" class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<h2 class="text-3xl font-bold text-center mb-12 text-dark">个人信息</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- 基本信息卡片 -->
+<div class="bg-gradient-to-br from-accent/10 to-secondary/10 rounded-xl p-6 shadow-sm card-hover border border-accent/20">
+<h3 class="text-xl font-semibold mb-4 text-primary flex items-center">
+<i class="fa fa-user-circle mr-2"></i> 基本信息
+</h3>
+<ul class="space-y-3 text-dark">
+<li><span class="font-medium">姓名：</span>包原杰</li>
+<li><span class="font-medium">性别：</span>女</li>
+<li><span class="font-medium">出生年月：</span>2005年5月</li>
+<li><span class="font-medium">邮箱：</span>3167633701@qq.com</li>
+<li><span class="font-medium">手机：</span>15771540526</li>
+</ul>
+</div>
+
+<!-- 教育背景卡片 -->
+<div class="bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl p-6 shadow-sm card-hover border border-primary/20">
+<h3 class="text-xl font-semibold mb-4 text-secondary flex items-center">
+<i class="fa fa-graduation-cap mr-2"></i> 教育背景
+</h3>
+<ul class="space-y-3 text-dark">
+<li><span class="font-medium">学校：</span>深圳大学</li>
+<li><span class="font-medium">专业：</span>网络与新媒体（本科）</li>
+<li><span class="font-medium">时间：</span>2023.09 - 至今</li>
+<li><span class="font-medium">GPA：</span>3.9/4.5（专业前10%）</li>
+<li><span class="font-medium">主修课程：</span>AI视听创作、网络营销、新媒体用户研究、数据抓取与清洗、数据可视化、视听基础、动态设计、网页前端交互设计等</li>
+</ul>
+</div>
+
+<!-- 相关技能卡片 -->
+<div class="bg-gradient-to-br from-secondary/10 to-primary/10 rounded-xl p-6 shadow-sm card-hover border border-secondary/20">
+<h3 class="text-xl font-semibold mb-4 text-accent flex items-center">
+<i class="fa fa-cogs mr-2"></i> 相关技能
+</h3>
+<ul class="space-y-3 text-dark">
+<li><span class="font-medium">图文视频：</span>剪映、AE、Ps、可画</li>
+<li><span class="font-medium">办公软件：</span>WPS、Office</li>
+<li><span class="font-medium">数据工具：</span>SPSS、八爪鱼、Tableau</li>
+<li><span class="font-medium">语言能力：</span>英语四级、普通话二级甲等</li>
+<li><span class="font-medium">AI工具：</span>豆包、DeepSeek、即梦、可灵、ChtaGPT</li>
+</ul>
+</div>
+
+<!-- 自我评价卡片 -->
+<div class="bg-gradient-to-br from-accent/10 to-secondary/20 rounded-xl p-6 shadow-sm card-hover border border-accent/20">
+<h3 class="text-xl font-semibold mb-4 text-primary flex items-center">
+<i class="fa fa-comment mr-2"></i> 自我评价
+</h3>
+<p class="text-dark leading-relaxed">
+网络与新媒体专业背景，在实践中积累了丰富的AIGC经验，擅长各类AI的使用；<br><br>
+综艺爱好者，爱好脑综、旅综等，熟悉各大社交媒体平台的机制与玩法；<br><br>
+具有组织能力，大学担任多个项目组长与负责人，具备协调与管理能力；<br><br>
+普通话标准，擅长沟通交流，能高效协同团队完成目标。
+</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 重点作品区 -->
+<section id="key-works" class="py-16 bg-gradient-to-b from-neutral to-white">
+<div class="container mx-auto px-4">
+<h2 class="text-3xl font-bold text-center mb-12 text-dark">重点作品</h2>
+
+<!-- 重点作品1：全国大学生广告艺术大赛AI主题视频 -->
+<div class="bg-white rounded-2xl p-8 mb-16 shadow-lg border border-accent/20">
+<h3 class="text-2xl font-semibold mb-6 text-primary flex items-center">
+<i class="fa fa-film mr-2"></i>
+全国大学生广告艺术大赛AIGC视频创作
+</h3>
+<p class="text-dark mb-8">
+<span class="font-medium">项目角色：</span>第二负责人 | <span class="font-medium">项目时间：</span>2025.05 - 2025.06 | <span class="font-medium">项目成果：</span>参与学院的首次“AI+视听内容生成”展映
+</p>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- 视频展示 -->
+<div class="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-xl p-4 border border-primary/10">
+<h4 class="text-lg font-medium mb-3 text-dark">作品视频</h4>
+<!-- 视频占位符（替换为你的实际视频链接） -->
+<div class="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg flex items-center justify-center">
+<video
+  controls
+  class="w-full h-full object-cover rounded-lg"
+  poster="D:\works_web\作品集\大广赛AIGC视频《灵感厨房》\灵感厨房封面.jpg" 
+>
+  <source src="http://t51nagxbm.hd-bkt.clouddn.com/%E5%A4%A7%E5%B9%BF%E8%B5%9BAIGC%E8%A7%86%E9%A2%91%E3%80%8A%E7%81%B5%E6%84%9F%E5%8E%A8%E6%88%BF%E3%80%8B/9%E7%BB%84_%E7%81%B5%E6%84%9F%E5%8E%A8%E6%88%BF.mp4?e=1761995486&token=LVbymlpVr5HHRXUHEEp2KXXmeZGrYDYkin0XSDO2:YXEIES5xRVFudMw0dbrPQ-UkhRw=" type="video/mp4">
+  您的浏览器不支持视频播放，请更新浏览器版本。
+</video>
+</div>
+</div>
+
+<!-- 文字说明与PDF下载 -->
+<div>
+<h4 class="text-lg font-medium mb-3 text-dark">项目说明</h4>
+<p class="text-dark mb-6 leading-relaxed">
+1. <span class="font-medium text-primary">内容策划：</span>调研大广赛往届获奖作品，结合AI视听创作的课程要求，选择“大广赛”IP进行创意策划；并参与组织小组进行头脑风暴，最终确认以“第一人称”“一镜到底”和“游戏闯关”的形式呈现视频；<br><br>
+2. <span class="font-medium text-secondary">AI工具应用：</span>使用即梦AI生成950+张图片素材，不断优化关键词提升素材质量，并总结出“画面主体+细节补充+场景环境+风格限定”的文生图公式，最终生成13张可使用素材，再协同组员图生视频，完成3分钟成片；<br><br>
+3. <span class="font-medium text-accent">项目价值：</span>参与学院首次"AI+视听内容生成"展映，熟练掌握多类AI创作工具，提升内容策划、团队协作及赛事项目管理能力。
+</p>
+
+<!-- PDF下载按钮 -->
+<a href="D:\works_web\作品集\大广赛AIGC视频《灵感厨房》\灵感厨房.pdf"
+class="inline-block bg-secondary text-white px-6 py-2 rounded-lg font-medium hover:bg-primary transition-colors flex items-center shadow-md"
+target="_blank"
+>
+<i class="fa fa-download mr-2"></i> 查看演示文稿PDF
+</a>
+</div>
+</div>
+</div>
+
+<!-- 重点作品2：文化桌游《掌中之星》 -->
+<div class="bg-white rounded-2xl p-8 shadow-lg border border-secondary/20">
+<h3 class="text-2xl font-semibold mb-6 text-secondary flex items-center">
+<i class="fa fa-gamepad mr-2"></i>
+文化桌游产品《掌中之星》（AI辅助创作）
+</h3>
+<p class="text-dark mb-8">
+<span class="font-medium">项目角色：</span>组长 | <span class="font-medium">项目时间：</span>2025.09 - 2025.10 | <span class="font-medium">项目成果：</span>完成含3类卡牌、2类版图、3类资产币及完整规则的桌游成品
+</p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- 规则介绍视频 -->
+<div class="bg-gradient-to-br from-secondary/5 to-accent/5 rounded-xl p-4 border border-secondary/10">
+<h4 class="text-lg font-medium mb-3 text-dark">规则介绍视频</h4>
+<!-- 视频占位符（替换为你的实际视频链接） -->
+<div class="aspect-video bg-gradient-to-br from-secondary/10 to-primary/10 rounded-lg flex items-center justify-center">
+<video
+  controls
+  class="w-full h-full object-cover rounded-lg"
+  poster="D:\works_web\作品集\视频封面\掌中之星-封面.png"
+>
+  <source src="http://t51nagxbm.hd-bkt.clouddn.com/AI%E8%BE%85%E5%8A%A9%E6%96%87%E5%8C%96%E6%A1%8C%E6%B8%B8%E4%BA%A7%E5%93%81%E3%80%8A%E6%8E%8C%E4%B8%AD%E4%B9%8B%E6%98%9F%E3%80%8B/%E6%8E%8C%E4%B8%AD%E4%B9%8B%E6%98%9F%E8%A7%84%E5%88%99%E4%BB%8B%E7%BB%8D%E8%A7%86%E9%A2%91.mp4?e=1761995521&token=LVbymlpVr5HHRXUHEEp2KXXmeZGrYDYkin0XSDO2:PfQpBvyMYEJsD8nilDoJzkTSqgk=" type="video/mp4">
+  您的浏览器不支持视频播放，请更新浏览器版本。
+</video>
+</div>
+</div>
+
+<!-- 文字说明 -->
+<div class="md:col-span-2">
+<h4 class="text-lg font-medium mb-3 text-dark">项目说明</h4>
+<p class="text-dark mb-6 leading-relaxed">
+1. <span class="font-medium text-primary">创意策划：</span>围绕“文化工业”主题，聚焦“娱乐圈生态”核心场景，联合2名组员策划桌游的基本形式。借助豆包、DeepSeek生成10+版机制方案；人工筛选和整合后，设计出“玩家竞拍艺人→艺人产出收益→粉丝变现资产”的核心机制；<br><br>
+2. <span class="font-medium text-secondary">视觉落地：</span>使用即梦AI和豆包生成60+张卡牌素材，不断优化关键词（例如在风格上限定为华丽鎏金质感），以匹配“娱乐圈、华丽复古”的设定，最终完成包含桌游物料及PPT背景图的整体视觉体系搭建；<br><br>
+3. <span class="font-medium text-accent">项目优化：</span>组织3轮组内试玩，收集到“数值不平衡，技能卡优势过强”等有效反馈，将反馈输入豆包和DeepSeek后生成数值调整方案，再经由人工校准后优化，最终产出桌游成品。
+</p>
+
+<!-- PDF下载按钮（两个） -->
+<div class="flex flex-wrap gap-4">
+<a href="D:\works_web\作品集\AI辅助文化桌游产品《掌中之星》\掌中之星PPT终稿.pdf"
+class="inline-block bg-primary text-white px-6 py-2 rounded-lg font-medium hover:bg-secondary transition-colors flex items-center shadow-md"
+target="_blank"
+>
+<i class="fa fa-download mr-2"></i> 查看项目演示PDF
+</a>
+<a href="D:\works_web\作品集\AI辅助文化桌游产品《掌中之星》\物料汇总.pdf"
+class="inline-block bg-accent text-dark px-6 py-2 rounded-lg font-medium hover:bg-secondary hover:text-white transition-colors flex items-center shadow-md"
+target="_blank"
+>
+<i class="fa fa-download mr-2"></i> 查看物料展示PDF
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 其他视频作品区 -->
+<section id="other-videos" class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<h2 class="text-3xl font-bold text-center mb-12 text-dark">其他视频作品</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- 视频作品1（大广赛三福广告片《这样一代》 -->
+<div class="bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl overflow-hidden shadow-sm card-hover border border-primary/10">
+<div class="aspect-video bg-gradient-to-br from-primary/10 to-secondary/10">
+<video
+  controls
+  class="w-full h-full object-cover"
+  poster="D:\works_web\作品集\视频封面\三福大广赛-封面.jpg"
+>
+  <source src="http://t51nagxbm.hd-bkt.clouddn.com/%E5%A4%A7%E5%B9%BF%E8%B5%9B%E4%B8%89%E7%A6%8F%E5%B9%BF%E5%91%8A%E7%89%87%E3%80%8A%E8%BF%99%E6%A0%B7%E4%B8%80%E4%BB%A3%E3%80%8B.mp4?e=1761995571&token=LVbymlpVr5HHRXUHEEp2KXXmeZGrYDYkin0XSDO2:U8xDgH7sf2GIVOwtokl01fsUP8E=" type="video/mp4">
+  浏览器不支持播放
+</video>
+</div>
+<div class="p-5">
+<h4 class="text-lg font-semibold mb-2 text-dark">大广赛三福广告片《这样一代》</h4>
+<p class="text-dark text-sm">
+第17届全国大学生广告艺术大赛视频赛道省级三等奖获奖作品
+</p>
+</div>
+</div>
+
+<!-- 视频作品2 深大官号考研宣传片-->
+<div class="bg-gradient-to-br from-secondary/5 to-primary/5 rounded-xl overflow-hidden shadow-sm card-hover border border-secondary/10">
+<div class="aspect-video bg-gradient-to-br from-secondary/10 to-accent/10">
+<video
+  controls
+  class="w-full h-full object-cover"
+  poster="D:\works_web\作品集\视频封面\官号-封面.png"
+>
+  <source src="http://t51nagxbm.hd-bkt.clouddn.com/%E6%B7%B1%E5%A4%A7%E5%AE%98%E5%8F%B7_%E8%80%83%E7%A0%94%E5%AE%A3%E4%BC%A0%E7%89%87.mp4?e=1761995601&token=LVbymlpVr5HHRXUHEEp2KXXmeZGrYDYkin0XSDO2:Y-iXclaMChoxnurA9bBSXqLrNaI=" type="video/mp4">
+  浏览器不支持播放
+</video>
+</div>
+<div class="p-5">
+<h4 class="text-lg font-semibold mb-2 text-dark">深大官号考研宣传片</h4>
+<p class="text-dark text-sm">
+融媒体中心官方抖音视频，获赞1400+
+</p>
+</div>
+</div>
+
+<!-- 视频作品3 对白悬疑短片《项链》-->
+<div class="bg-gradient-to-br from-accent/5 to-secondary/5 rounded-xl overflow-hidden shadow-sm card-hover border border-accent/10">
+<div class="aspect-video bg-gradient-to-br from-accent/10 to-primary/10">
+<video
+  controls
+  class="w-full h-full object-cover"
+  poster="D:\works_web\作品集\视频封面\无对白-封面.png"
+>
+  <source src="http://t51nagxbm.hd-bkt.clouddn.com/%E6%97%A0%E5%AF%B9%E7%99%BD%E6%82%AC%E7%96%91%E7%9F%AD%E7%89%87%E3%80%8A%E9%A1%B9%E9%93%BE%E3%80%8B.mp4?e=1761995620&token=LVbymlpVr5HHRXUHEEp2KXXmeZGrYDYkin0XSDO2:cYQYQqYvhpZ8948TVDqmH1xRmVQ=" type="video/mp4">
+  浏览器不支持播放
+</video>
+</div>
+<div class="p-5">
+<h4 class="text-lg font-semibold mb-2 text-dark">无对白悬疑短片《项链》</h4>
+<p class="text-dark text-sm">
+视听基础课程结课作业
+</p>
+</div>
+</div>
+
+<!-- 视频作品4 游戏机动画-->
+<div class="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-xl overflow-hidden shadow-sm card-hover border border-primary/10">
+<div class="aspect-video bg-gradient-to-br from-primary/10 to-accent/10">
+<video
+  controls
+  class="w-full h-full object-cover"
+  poster="D:\works_web\作品集\视频封面\游戏机-封面.png"
+>
+  <source src="http://t51nagxbm.hd-bkt.clouddn.com/%E6%B8%B8%E6%88%8F%E6%9C%BA%E5%8A%A8%E7%94%BB.mp4?e=1761995647&token=LVbymlpVr5HHRXUHEEp2KXXmeZGrYDYkin0XSDO2:RNsrL9xVnM2u8wPH1otzq_jQQDY=" type="video/mp4">
+  浏览器不支持播放
+</video>
+</div>
+<div class="p-5">
+<h4 class="text-lg font-semibold mb-2 text-dark">游戏机推广动画</h4>
+<p class="text-dark text-sm">
+动态设计课程结课作业
+</p>
+</div>
+</div>
+
+<!-- 视频作品5学院奖心相印广告片《记录》-->
+<div class="bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl overflow-hidden shadow-sm card-hover border border-primary/10">
+<div class="aspect-video bg-gradient-to-br from-primary/10 to-secondary/10">
+<video
+  controls
+  class="w-full h-full object-cover"
+>
+  <source src="http://t51nagxbm.hd-bkt.clouddn.com/%E5%AD%A6%E9%99%A2%E5%A5%96%E5%BF%83%E7%9B%B8%E5%8D%B0%E5%B9%BF%E5%91%8A%E7%89%87%E3%80%8A%E8%AE%B0%E5%BD%95%E3%80%8B.mp4?e=1761996127&token=LVbymlpVr5HHRXUHEEp2KXXmeZGrYDYkin0XSDO2:r9nNP_SfEg9b1-Z5AOqeed6PJ8c=" type="video/mp4">
+  浏览器不支持播放
+</video>
+</div>
+<div class="p-5">
+<h4 class="text-lg font-semibold mb-2 text-dark">学院奖心相印广告片《记录》</h4>
+<p class="text-dark text-sm">
+创意星球学院奖参赛作品
+</p>
+</div>
+</div>
+
+<!-- 视频作品6 健康科普搞怪创意短片-->
+<div class="bg-gradient-to-br from-secondary/5 to-primary/5 rounded-xl overflow-hidden shadow-sm card-hover border border-secondary/10">
+<div class="aspect-video bg-gradient-to-br from-secondary/10 to-accent/10">
+<video
+  controls
+  class="w-full h-full object-cover"
+  poster="D:\works_web\作品集\视频封面\你远比完美重要2.0-封面.jpg"
+>
+  <source src="http://t51nagxbm.hd-bkt.clouddn.com/11%E6%9C%881%E6%97%A5.mp4?e=1761995712&token=LVbymlpVr5HHRXUHEEp2KXXmeZGrYDYkin0XSDO2:CZYaNuSUwILH4LZaLnqnM5DcC2I=" type="video/mp4">
+  浏览器不支持播放
+</video>
+</div>
+<div class="p-5">
+<h4 class="text-lg font-semibold mb-2 text-dark">健康科普搞怪创意短片</h4>
+<p class="text-dark text-sm">
+视频号播放量6000+，获赞550+，转发量100+
+</p>
+</div>
+</div>
+
+<!-- 视频作品7 舞团_舞台混剪_周年宣传片-->
+<div class="bg-gradient-to-br from-accent/5 to-secondary/5 rounded-xl overflow-hidden shadow-sm card-hover border border-accent/10">
+<div class="aspect-video bg-gradient-to-br from-accent/10 to-primary/10">
+<video
+  controls
+  class="w-full h-full object-cover"
+  poster="D:\works_web\作品集\视频封面\舞团_舞台混剪_周年宣传片.jpg"
+>
+  <source src="http://t51nagxbm.hd-bkt.clouddn.com/%E8%88%9E%E5%9B%A2_%E8%88%9E%E5%8F%B0%E6%B7%B7%E5%89%AA_%E5%91%A8%E5%B9%B4%E5%AE%A3%E4%BC%A0%E7%89%87.mp4?e=1761995727&token=LVbymlpVr5HHRXUHEEp2KXXmeZGrYDYkin0XSDO2:gMPmQ8E6-C-1nBiEMSIkNZ_Ujhg=" type="video/mp4">
+  浏览器不支持播放
+</video>
+</div>
+<div class="p-5">
+<h4 class="text-lg font-semibold mb-2 text-dark">舞团周年宣传片</h4>
+<p class="text-dark text-sm">
+DEGREE舞团十七周年活动宣传视频
+</p>
+</div>
+</div>
+
+<!-- 视频作品8 舞团_舞蹈团挑战视频-->
+<div class="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-xl overflow-hidden shadow-sm card-hover border border-primary/10">
+<div class="aspect-video bg-gradient-to-br from-primary/10 to-accent/10">
+<video
+  controls
+  class="w-full h-full object-cover"
+  poster="D:\works_web\作品集\视频封面\cha-封面.jpg"
+>
+  <source src="http://t51nagxbm.hd-bkt.clouddn.com/%E8%88%9E%E5%9B%A2_%E8%88%9E%E8%B9%88%E6%8C%91%E6%88%98%E8%A7%86%E9%A2%91.mp4?e=1761995767&token=LVbymlpVr5HHRXUHEEp2KXXmeZGrYDYkin0XSDO2:-iiDvbwQ3s0NHJFgJBSETtukJEM=" type="video/mp4">
+  浏览器不支持播放
+</video>
+</div>
+<div class="p-5">
+<h4 class="text-lg font-semibold mb-2 text-dark">舞团舞蹈挑战视频</h4>
+<p class="text-dark text-sm">
+DEGREE舞团舞蹈challenge，视频号获赞100+
+</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 其他作品区 -->
+<section id="other-works" class="py-16 bg-gradient-to-b from-white to-neutral">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-12 text-dark">其他作品</h2>
+
+    <!-- 自媒体作品（图片形式） -->
+    <div class="bg-white rounded-2xl p-8 mb-12 shadow-lg border border-secondary/20">
+      <h3 class="text-2xl font-semibold mb-6 text-secondary flex items-center">
+        <i class="fa fa-file-text-o mr-2"></i> 个人小红书爆款笔记
+      </h3>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+        <div class="bg-gradient-to-br from-secondary/5 to-accent/5 rounded-xl p-4 flex justify-center border border-secondary/10">
+          <div class="aspect-[3/4] w-full max-w-sm">
+            <img
+              src="http://t51nagxbm.hd-bkt.clouddn.com/%E8%87%AA%E5%AA%92%E4%BD%93/%E5%B0%8F%E7%BA%A2%E4%B9%A6%E5%88%86%E4%BA%AB%E5%9B%BE.png?e=1761995798&token=LVbymlpVr5HHRXUHEEp2KXXmeZGrYDYkin0XSDO2:iBpQh9MbVhbDBFIBCXmjDXSLc5Y="
+              alt="推文作品截图"
+              class="w-full h-full object-cover rounded-lg shadow-sm"
+              title="点击查看大图"
+              onclick="this.style.objectFit='contain'; this.style.width='100%'; this.style.height='auto'; this.style.cursor='zoom-out'"
+              ondblclick="this.style.objectFit='cover'; this.style.width='100%'; this.style.height='100%'; this.style.cursor='zoom-in'"
+            >
+          </div>
+        </div>
+
+        <div class="pt-2">
+            <h4 class="text-lg font-medium mb-3 text-dark">祛魅|高考后的真实生活</h4>
+          <p class="text-dark mb-4 leading-relaxed">
+            <span class="font-medium text-accent">发布平台：</span>小红书<br>
+            <span class="font-medium text-secondary">发布时间：</span>2024-05-11<br>
+            <span class="font-medium text-accent">互动数据：</span>浏览量7.6万+，赞和收藏7300+，评论130+
+          </p>
+          <p class="text-dark leading-relaxed">
+            <span class="font-medium text-primary">内容说明：</span><br>· 针对高二高三备考学生群体，洞察其对高考后生活的好奇与期待，以 “缓解备考焦虑、传递大学生活真实质感” 为核心，策划相关内容
+            <br>
+            · 还原有关“高考后”“大学生活”的日常场景，以图片+文字的形式呈现，文字侧重真实体验分享（如各类自由、个人思考等），图片还原场景细节，增强代入感
+            <br>
+            · 内容直击目标受众情感需求，引发广泛情感共鸣，激发受众对大学生活的正向向往，收获高点赞、评论互动量
+          </p>
+          <br>
+            <span class="font-medium text-primary">笔记链接：</span><a href="https://www.xiaohongshu.com/discovery/item/663f8b2c000000001e01d0b9?source=webshare&xhsshare=pc_web&xsec_token=ABAqGDEGfR1N0EwB0dtdEz_ZZpkGCSsixTF1nm3quUWKU=&xsec_source=pc_share"><em><u>【祛魅｜高考后的真实生活 - 健康生活每一天 | 小红书 - 你的生活兴趣社区】</u></em></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 海报作品（4个） -->
+    <div class="bg-white rounded-2xl p-8 shadow-lg border border-primary/20">
+      <h3 class="text-2xl font-semibold mb-6 text-primary flex items-center">
+        <i class="fa fa-picture-o mr-2"></i> 海报作品（点击查看大图）
+      </h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- 海报1 -->
+        <div class="bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl overflow-hidden shadow-sm card-hover border border-primary/10 cursor-pointer" onclick="openImageModal('D:\\works_web\\作品集\\圣诞活动海报.jpg', '圣诞活动海报')">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img
+              src="http://t51nagxbm.hd-bkt.clouddn.com/%E5%9C%A3%E8%AF%9E%E6%B4%BB%E5%8A%A8%E6%B5%B7%E6%8A%A5.jpg?e=1761995827&token=LVbymlpVr5HHRXUHEEp2KXXmeZGrYDYkin0XSDO2:c14iMQrnaIpcSSakhUfqB_6x_iU="
+              alt="海报作品1"
+              class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+            >
+          </div>
+          <div class="p-4">
+            <h4 class="text-lg font-semibold mb-2 text-dark">圣诞活动海报</h4>
+            <p class="text-dark text-sm">
+              图文信息处理结课作业
+            </p>
+          </div>
+        </div>
+
+        <!-- 海报2 -->
+        <div class="bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl overflow-hidden shadow-sm card-hover border border-primary/10 cursor-pointer" onclick="openImageModal('D:\\works_web\\作品集\\旺旺海报\\旺旺冬至_01.png', '旺旺冬至')">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img
+              src="http://t51nagxbm.hd-bkt.clouddn.com/%E6%97%BA%E6%97%BA%E6%B5%B7%E6%8A%A5/%E6%97%BA%E6%97%BA%E5%86%AC%E8%87%B3_01.png?e=1761995851&token=LVbymlpVr5HHRXUHEEp2KXXmeZGrYDYkin0XSDO2:_lWeveHXkOCfj7OPQn-8sdY24NQ="
+              alt="海报作品2"
+              class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+            >
+          </div>
+          <div class="p-4">
+            <h4 class="text-lg font-semibold mb-2 text-dark">旺旺冬至</h4>
+            <p class="text-dark text-sm">
+              创意星球学院奖参赛作品
+            </p>
+          </div>
+        </div>
+
+        <!-- 海报3 -->
+        <div class="bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl overflow-hidden shadow-sm card-hover border border-primary/10 cursor-pointer" onclick="openImageModal('D:\\works_web\\作品集\\旺旺海报\\旺旺谷雨_01.png', '旺旺谷雨')">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img
+              src="http://t51nagxbm.hd-bkt.clouddn.com/%E6%97%BA%E6%97%BA%E6%B5%B7%E6%8A%A5/%E6%97%BA%E6%97%BA%E8%B0%B7%E9%9B%A8.pdf?e=1761995883&token=LVbymlpVr5HHRXUHEEp2KXXmeZGrYDYkin0XSDO2:XTZH0mNaKX0M1_bCo94DuDtuYV8="
+              alt="海报作品3"
+              class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+            >
+          </div>
+          <div class="p-4">
+            <h4 class="text-lg font-semibold mb-2 text-dark">旺旺谷雨</h4>
+            <p class="text-dark text-sm">
+              创意星球学院奖参赛作品
+            </p>
+          </div>
+        </div>
+
+        <!-- 海报4 -->
+        <div class="bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl overflow-hidden shadow-sm card-hover border border-primary/10 cursor-pointer" onclick="openImageModal('D:\\works_web\\作品集\\旺旺海报\\旺旺立春_01.png', '旺旺立春')">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img
+              src="http://t51nagxbm.hd-bkt.clouddn.com/%E6%97%BA%E6%97%BA%E6%B5%B7%E6%8A%A5/%E6%97%BA%E6%97%BA%E7%AB%8B%E6%98%A5_01.png?e=1761995905&token=LVbymlpVr5HHRXUHEEp2KXXmeZGrYDYkin0XSDO2:9TIIh9VxepWNNYANNk-L1TC9lDQ="
+              alt="海报作品4"
+              class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+            >
+          </div>
+          <div class="p-4">
+            <h4 class="text-lg font-semibold mb-2 text-dark">旺旺立春</h4>
+            <p class="text-dark text-sm">
+              创意星球学院奖参赛作品
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 图片查看模态框 -->
+<div id="imageModal" class="fixed inset-0 bg-black/80 z-50 hidden items-center justify-center p-4">
+  <div class="relative max-w-5xl w-full">
+    <button id="closeModal" class="absolute -top-12 right-0 text-white text-2xl hover:text-gray-300 transition-colors">
+      <i class="fa fa-times"></i>
+    </button>
+    <h3 id="modalTitle" class="text-white text-xl font-medium mb-4 text-center"></h3>
+    <div class="bg-white p-2 rounded-lg">
+      <img id="modalImage" src="" alt="大图预览" class="w-full h-auto max-h-[80vh] object-contain">
+    </div>
+  </div>
+</div>
+
+<script>
+// 打开图片模态框
+function openImageModal(imageSrc, title) {
+  const modal = document.getElementById('imageModal');
+  const modalImage = document.getElementById('modalImage');
+  const modalTitle = document.getElementById('modalTitle');
+  
+  modalImage.src = imageSrc;
+  modalTitle.textContent = title;
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+  document.body.style.overflow = 'hidden'; // 防止背景滚动
+}
+
+// 关闭图片模态框
+function closeImageModal() {
+  const modal = document.getElementById('imageModal');
+  modal.classList.add('hidden');
+  modal.classList.remove('flex');
+  document.body.style.overflow = ''; // 恢复背景滚动
+}
+
+// 点击模态框背景关闭
+document.getElementById('imageModal').addEventListener('click', function(e) {
+  if (e.target === this) {
+    closeImageModal();
+  }
+});
+
+// 点击关闭按钮关闭
+document.getElementById('closeModal').addEventListener('click', closeImageModal);
+
+// 按ESC键关闭
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && !document.getElementById('imageModal').classList.contains('hidden')) {
+    closeImageModal();
+  }
+});
+</script>
+<!-- 联系区 -->
+<section id="contact" class="py-16 bg-gradient-to-b from-accent/10 to-secondary/10">
+<div class="container mx-auto px-4">
+<h2 class="text-3xl font-bold text-center mb-12 text-dark">联系我</h2>
+<div class="max-w-2xl mx-auto bg-white rounded-2xl p-8 shadow-lg border border-accent/20">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- 联系方式 -->
+<div>
+<h3 class="text-xl font-semibold mb-6 text-primary flex items-center">
+<i class="fa fa-envelope mr-2"></i> 联系方式
+</h3>
+<ul class="space-y-4 text-dark">
+<li class="flex items-center">
+<i class="fa fa-envelope-o text-primary text-xl w-8"></i>
+<span>邮箱：3167633701@qq.com</span>
+</li>
+<li class="flex items-center">
+<i class="fa fa-phone text-secondary text-xl w-8"></i>
+<span>电话：15771540526</span>
+</li>
+</ul>
+</div>
+
+<!-- 求职提示 -->
+<div>
+<h3 class="text-xl font-semibold mb-6 text-secondary flex items-center">
+<i class="fa fa-lightbulb-o mr-2"></i> 感谢阅读
+</h3>
+<p class="text-dark leading-relaxed mb-4">
+感谢您查看我的作品集！若您对我的作品或能力感兴趣，欢迎通过上述方式联系我，我会在24小时内回复。
+</p>
+<p class="text-dark leading-relaxed">
+如需查看更多作品细节或获取简历PDF，可直接联系我，我会第一时间提供。期待有机会与您进一步沟通！
+</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 页脚 -->
+<footer class="py-8 bg-gradient-to-r from-primary to-secondary text-white">
+<div class="container mx-auto px-4 text-center">
+<p class="text-white/90">2025 包原杰 - 个人作品集 | 深圳大学 | 网络与新媒体</p>
+</div>
+</footer>
+
+<!-- JavaScript（交互功能） -->
+<script>
+// 1. 移动端导航菜单切换
+const menuBtn = document.getElementById('menuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+menuBtn.addEventListener('click', () => {
+  mobileMenu.classList.toggle('hidden');
+  menuBtn.innerHTML = mobileMenu.classList.contains('hidden')
+    ? '<i class="fa fa-bars text-xl"></i>'
+    : '<i class="fa fa-times text-xl"></i>';
+});
+
+// 2. 导航栏滚动效果（滚动时改变样式）
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    navbar.classList.add('py-2', 'shadow');
+    navbar.classList.remove('py-3', 'shadow-sm');
+  } else {
+    navbar.classList.add('py-3', 'shadow-sm');
+    navbar.classList.remove('py-2', 'shadow');
+  }
+});
+
+// 3. 平滑滚动（点击导航链接跳转到对应区域）
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    // 关闭移动端菜单（如果打开）
+    if (!mobileMenu.classList.contains('hidden')) {
+      mobileMenu.classList.add('hidden');
+      menuBtn.innerHTML = '<i class="fa fa-bars text-xl"></i>';
+    }
+    // 滚动到目标区域
+    const targetId = this.getAttribute('href');
+    document.querySelector(targetId).scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+});
+
+// 4. 图片加载失败时显示默认图
+document.querySelectorAll('img').forEach(img => {
+  img.addEventListener('error', () => {
+    img.src = 'https://picsum.photos/400/300?random=default';
+    img.alt = '图片加载失败';
+  });
+});
+</script>
+</body>
+</html>
